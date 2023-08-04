@@ -2,6 +2,7 @@ FROM node:20-bullseye
 
 WORKDIR /app
 
-RUN yarn install
+RUN npm install -g npm
+RUN rm -rf dist node_modules yarn.lock
 
-CMD [  "yarn", "start:dev" ]
+ENTRYPOINT [ ".docker/node/entrypoint.sh" ]
